@@ -1,0 +1,12 @@
+:root {
+  --background: #090909;
+  --surface: #171717;
+  --accent: #c6a667;
+  --silver: #d1d3d4;
+  --text: #f4f0e8;
+  --muted: #a49f96;
+  --border: #f4f0e81c;
+  --gutter: clamp(20px, 4.2vw, 80px);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Manrope', Arial, sans-serif;
+}

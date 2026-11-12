@@ -1,0 +1,158 @@
+{
+  "campaign": {
+    "name": "chronos_aion_campaign_01",
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "width": 720,
+        "file": "chronos_aion_campaign_01-720.webp",
+        "bytes": 31656
+      },
+      {
+        "width": 1200,
+        "file": "chronos_aion_campaign_01-1200.webp",
+        "bytes": 72442
+      },
+      {
+        "width": 1672,
+        "file": "chronos_aion_campaign_01-1672.webp",
+        "bytes": 117530
+      }
+    ],
+    "fallback": "chronos_aion_campaign_01.jpg",
+    "fallbackBytes": 97673,
+    "originalBytes": 1976591,
+    "sourceSha256": "522c034a0b60830fcf4eced9e5464b0a22dd60762dd145caa514f8ad001c24fe"
+  },
+  "macro": {
+    "name": "chronos_aion_macro_02",
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "width": 720,
+        "file": "chronos_aion_macro_02-720.webp",
+        "bytes": 51746
+      },
+      {
+        "width": 1200,
+        "file": "chronos_aion_macro_02-1200.webp",
+        "bytes": 97860
+      },
+      {
+        "width": 1672,
+        "file": "chronos_aion_macro_02-1672.webp",
+        "bytes": 147600
+      }
+    ],
+    "fallback": "chronos_aion_macro_02.jpg",
+    "fallbackBytes": 142572,
+    "originalBytes": 2123724,
+    "sourceSha256": "1b7efa32a429c08a89e75354316138e7d7c02d815ad141a9e18bba1f5bf3ef8f"
+  },
+  "craftsmanship": {
+    "name": "chronos_aion_craftsmanship_03",
+    "width": 1671,
+    "height": 941,
+    "variants": [
+      {
+        "width": 720,
+        "file": "chronos_aion_craftsmanship_03-720.webp",
+        "bytes": 43604
+      },
+      {
+        "width": 1200,
+        "file": "chronos_aion_craftsmanship_03-1200.webp",
+        "bytes": 90074
+      },
+      {
+        "width": 1671,
+        "file": "chronos_aion_craftsmanship_03-1671.webp",
+        "bytes": 138774
+      }
+    ],
+    "fallback": "chronos_aion_craftsmanship_03.jpg",
+    "fallbackBytes": 124163,
+    "originalBytes": 2143887,
+    "sourceSha256": "1ad5a1351c17c6d9705ce06e4ff3293b2833e6a2dd75956ba7eb174996d3e7e4"
+  },
+  "leather": {
+    "name": "chronos_aion_leather_04",
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "width": 720,
+        "file": "chronos_aion_leather_04-720.webp",
+        "bytes": 43588
+      },
+      {
+        "width": 1200,
+        "file": "chronos_aion_leather_04-1200.webp",
+        "bytes": 104572
+      },
+      {
+        "width": 1672,
+        "file": "chronos_aion_leather_04-1672.webp",
+        "bytes": 170174
+      }
+    ],
+    "fallback": "chronos_aion_leather_04.jpg",
+    "fallbackBytes": 123361,
+    "originalBytes": 2265179,
+    "sourceSha256": "e2f0ccfc9b8fdb0b9bd6db47ec76598526376b3593fc96e0fea8faa1c149dba0"
+  },
+  "philosophy": {
+    "name": "chronos_philosophy_05",
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "width": 720,
+        "file": "chronos_philosophy_05-720.webp",
+        "bytes": 35312
+      },
+      {
+        "width": 1200,
+        "file": "chronos_philosophy_05-1200.webp",
+        "bytes": 85472
+      },
+      {
+        "width": 1672,
+        "file": "chronos_philosophy_05-1672.webp",
+        "bytes": 141886
+      }
+    ],
+    "fallback": "chronos_philosophy_05.jpg",
+    "fallbackBytes": 118801,
+    "originalBytes": 2073586,
+    "sourceSha256": "e6df461f1f674528e25bd2adc0991b873f9581cb8ff011b9f5ea60f3624f751d"
+  },
+  "beyond": {
+    "name": "chronos_beyond_time_06",
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "width": 720,
+        "file": "chronos_beyond_time_06-720.webp",
+        "bytes": 36186
+      },
+      {
+        "width": 1200,
+        "file": "chronos_beyond_time_06-1200.webp",
+        "bytes": 82424
+      },
+      {
+        "width": 1672,
+        "file": "chronos_beyond_time_06-1672.webp",
+        "bytes": 134062
+      }
+    ],
+    "fallback": "chronos_beyond_time_06.jpg",
+    "fallbackBytes": 115078,
+    "originalBytes": 2035509,
+    "sourceSha256": "8afa5d97c5cd6625c57c14d13de623cf1b2f0e164786dfabf386eb3c1586dae2"
+  }
+}

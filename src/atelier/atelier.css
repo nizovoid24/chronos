@@ -1,0 +1,100 @@
+/* The existing Canvas remains in the same React/DOM host in both modes. */
+.atelier-launch { position: absolute; top: 12px; right: 12px; min-height: 44px; padding: 0 14px; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: var(--silver); border-bottom: 1px solid var(--border); }
+.atelier-launch span { padding-left: 12px; color: var(--accent); }
+.atelier-launch:hover { color: var(--text); border-color: var(--accent); }
+.atelier-header[hidden], .atelier-panel[hidden], .atelier-toolbar[hidden], .hero-viewer-ui[hidden], .viewer-help[hidden] { display: none; }
+body[data-atelier-open] .hero { z-index: 100; }
+.watch-viewer.atelier-open { position: fixed; inset: 0; z-index: 100; width: 100%; height: 100vh; height: 100dvh; background: #0a0a09; display: grid; grid-template-columns: minmax(0,1fr) 360px; grid-template-rows: 96px minmax(0,1fr) 76px; color: #eeeae0; }
+.atelier-open .watch-stage { grid-column: 1; grid-row: 2; height: 100%; width: 100%; min-width: 0; min-height: 0; }
+.atelier-open .watch-stage:focus-visible { outline-offset: -8px; }
+.atelier-header { grid-column: 1 / -1; grid-row: 1; display: flex; align-items: center; justify-content: space-between; padding: max(20px,env(safe-area-inset-top)) 36px 20px; border-bottom: 1px solid #b6a47e2b; gap: 20px; }
+.atelier-wordmark { font: 26px var(--font-display); letter-spacing: .21em; }
+.atelier-header h2 { margin: 7px 0 0; font: 8px var(--font-ui); letter-spacing: .22em; color: #b5a079; }
+.atelier-header button { min-height: 44px; padding: 0 4px; display: flex; align-items: center; gap: 24px; font-size: 10px; letter-spacing: .08em; }
+.atelier-header button span { color: #c6ad7c; font-size: 20px; }
+.atelier-header button:hover { color: #c6ad7c; }
+.atelier-panel { grid-column: 2; grid-row: 2 / 4; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 28px 28px max(20px,env(safe-area-inset-bottom)); border-left: 1px solid #b6a47e2b; scrollbar-width: thin; scrollbar-color: #64583e #0a0a09; }
+.atelier-kicker { font-size: 8px; color: #bda77e; letter-spacing: .18em; margin: 0 0 16px; }
+.atelier-introduction h3 { font: 36px/.98 var(--font-display); font-weight: 500; letter-spacing: -.015em; margin: 0 0 14px; }
+.atelier-introduction em { font-weight: 500; color: #b5a488; }
+.atelier-introduction > p:last-child { font-size: 10px; color: #aaa69c; line-height: 1.8; margin: 0 0 27px; }
+.atelier-finishes fieldset, .atelier-focus { padding: 20px 0 18px; margin: 0; border: 0; border-top: 1px solid #b6a47e2b; min-width: 0; }
+.atelier-finishes legend { width: 100%; float: left; padding: 0; margin: 0 0 14px; text-transform: uppercase; font-size: 9px; letter-spacing: .16em; color: #d9d4c7; }
+.atelier-finishes legend span { color: #b5a079; margin-right: 12px; }
+.atelier-options { clear: both; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; }
+.atelier-options label { min-height: 66px; position: relative; border: 1px solid #e5dac018; padding: 12px 6px 9px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 10px; line-height: 1.4; color: #bbb7ac; transition: border-color .2s,color .2s; }
+.atelier-options input { position: absolute; width: 100%; height: 100%; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.atelier-options label:has(input:focus-visible) { outline: 2px solid #c6ad7c; outline-offset: 3px; }
+.atelier-options label.is-selected { border-color: #b5a079; color: #f0ece2; }
+.atelier-options label:hover { border-color: #8e7c58; }
+.atelier-options fieldset:disabled, .atelier-finishes fieldset:disabled label { cursor: wait; opacity: .45; }
+.atelier-swatch { width: 14px; height: 14px; border-radius: 50%; box-shadow: inset 0 0 0 1px #ffffff24; }
+.atelier-check { display: none; position: absolute; right: 8px; top: 11px; color: #c6ad7c; font-size: 9px; }
+.is-selected .atelier-check { display: block; }
+.atelier-focus { padding-top: 18px; }
+.atelier-focus legend { float: left; width: 100%; margin: 0 0 10px; padding: 0; font-size: 8px; text-transform: uppercase; letter-spacing: .18em; color: #b5a079; }
+.atelier-focus > div { clear: both; display: grid; grid-template-columns: 1fr 1fr; }
+.atelier-focus button { min-height: 44px; text-align: left; padding: 0 6px 0 0; font-size: 10px; color: #aaa69c; display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.atelier-focus button[aria-pressed="true"] { color: #f0ece2; }
+.atelier-focus button span { color: #b5a079; opacity: 0; }
+.atelier-focus button[aria-pressed="true"] span, .atelier-focus button:hover span { opacity: 1; }
+.atelier-reset { display: flex; justify-content: space-between; align-items: center; width: 100%; min-height: 48px; border-top: 1px solid #b6a47e2b; border-bottom: 1px solid #b6a47e2b; padding: 0; font-size: 9px; text-transform: uppercase; letter-spacing: .12em; }
+.atelier-reset span { font-size: 18px; color: #b5a079; }
+.atelier-concept { font-size: 8px; line-height: 1.8; color: #aaa69c; margin: 18px 0 0; }
+.atelier-warning { font-size: 10px; color: #d7c59e; }
+.atelier-toolbar { grid-column: 1; grid-row: 3; padding: 12px 28px max(12px,env(safe-area-inset-bottom)); display: flex; gap: 12px; align-items: center; justify-content: space-between; border-top: 1px solid #b6a47e2b; }
+.atelier-status { font-size: 8px; letter-spacing: .14em; color: #aaa69c; max-width: 240px; line-height: 1.6; }
+.atelier-toolbar > div { display: flex; align-items: center; }
+.atelier-toolbar button { min-height: 44px; min-width: 44px; padding: 0; color: #d9d4c7; font-size: 17px; }
+.atelier-toolbar button:hover { color: #c6ad7c; }
+.atelier-tool-divider { width: 1px; height: 18px; background: #b6a47e2b; margin: 0 10px; }
+.atelier-category-tabs { display: none; }
+@media (max-width: 1100px) and (min-width: 901px) {
+  .watch-viewer.atelier-open { grid-template-columns: minmax(0,1fr) 320px; }
+  .atelier-panel { padding-left: 20px; padding-right: 20px; }
+  .atelier-status { max-width: 110px; font-size: 7px; }
+  .atelier-toolbar { padding-left: 16px; padding-right: 16px; }
+}
+@media (max-width: 900px) {
+  .watch-viewer.atelier-open { grid-template-columns: minmax(0,1fr); grid-template-rows: calc(72px + env(safe-area-inset-top)) minmax(150px,1fr) auto calc(60px + env(safe-area-inset-bottom)); }
+  .atelier-header { padding: calc(12px + env(safe-area-inset-top)) 22px 12px; }
+  .atelier-wordmark { font-size: 22px; }
+  .atelier-header h2 { font-size: 7px; letter-spacing: .13em; }
+  .atelier-header button { font-size: 9px; gap: 12px; }
+  .atelier-panel { grid-column: 1; grid-row: 3; border-left: 0; border-top: 1px solid #b6a47e2b; padding: 0 22px 8px; overflow: visible; }
+  .atelier-introduction { display: none; }
+  .atelier-category-tabs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; border-bottom: 1px solid #b6a47e2b; }
+  .atelier-category-tabs button { min-height: 44px; padding: 0; font-size: 9px; color: #aaa69c; text-align: left; border-bottom: 1px solid transparent; }
+  .atelier-category-tabs button span { color: #b5a079; margin-right: 6px; font-size: 7px; }
+  .atelier-category-tabs button[aria-selected="true"] { color: #f0ece2; border-color: #b5a079; }
+  .atelier-finishes fieldset { padding: 12px 0; border: 0; }
+  .atelier-finishes legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .atelier-options label { min-height: 54px; padding: 8px 10px; flex-direction: row; align-items: center; gap: 9px; }
+  .atelier-options label > span:nth-of-type(2) { padding-right: 9px; }
+  .atelier-swatch { flex-shrink: 0; }
+  .atelier-check { top: 4px; right: 4px; font-size: 8px; }
+  .atelier-focus { padding: 6px 0 0; }
+  .atelier-focus legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .atelier-focus > div { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .atelier-focus button { min-height: 44px; justify-content: center; font-size: 9px; padding: 0 3px; text-align: center; }
+  .atelier-focus button span { display: none; }
+  .atelier-focus button[aria-pressed="true"] { border-bottom: 1px solid #b5a079; }
+  .atelier-reset { min-height: 44px; border-bottom: 0; font-size: 8px; }
+  .atelier-concept { display: none; }
+  .atelier-toolbar { grid-column: 1; grid-row: 4; justify-content: center; padding: 4px 8px calc(4px + env(safe-area-inset-bottom)); }
+  .atelier-status { position: absolute; left: 24px; top: calc(88px + env(safe-area-inset-top)); font-size: 7px; max-width: 80%; margin: 0; pointer-events: none; }
+  .atelier-tool-divider { margin: 0 8px; }
+}
+@media (max-width: 360px) {
+  .atelier-header { padding-left: 14px; padding-right: 14px; gap: 8px; }
+  .atelier-wordmark { font-size: 20px; }
+  .atelier-header h2 { font-size: 6px; }
+  .atelier-header button { font-size: 8px; gap: 8px; }
+  .atelier-panel { padding-left: 14px; padding-right: 14px; }
+  .atelier-options label { padding: 8px 6px; gap: 6px; font-size: 9px; }
+  .atelier-options label > span:nth-of-type(2) { padding-right: 0; }
+  .atelier-category-tabs button { font-size: 8px; }
+}
+@media (max-height: 550px) and (max-width: 900px) {
+  .watch-viewer.atelier-open { overflow-y: auto; grid-template-rows: calc(72px + env(safe-area-inset-top)) minmax(180px,1fr) auto calc(56px + env(safe-area-inset-bottom)); }
+}
