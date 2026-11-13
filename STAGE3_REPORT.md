@@ -6,7 +6,7 @@
 
 ## Основания
 
-Доступ к `/Users/dmitrij61/Desktop/KALLISTO` восстановлен. Изучены `CHRONOS_AUDIT.md`, актуальный отчёт из `CHRONOS/prototype/v02/CHRONOS_AION_V02_REPORT.md`, структура glTF, материалы и рендер ¾. До начала работы `CHRONOS/web`, frontend и package.json в CHRONOS отсутствовали.
+Доступ к `KALLISTO` восстановлен. Изучены `CHRONOS_AUDIT.md`, актуальный отчёт из `CHRONOS/prototype/v02/CHRONOS_AION_V02_REPORT.md`, структура glTF, материалы и рендер ¾. До начала работы `CHRONOS/web`, frontend и package.json в CHRONOS отсутствовали.
 
 ## Подготовлено
 

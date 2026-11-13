@@ -1,7 +1,7 @@
 # CHRONOS — STAGE 5B: AION Interactive Atelier
 
 **Дата:** 12 ноября 2026 года.  
-**Frontend:** `/Users/dmitrij61/Desktop/KALLISTO/CHRONOS/web/`  
+**Frontend:** `web/`\
 **Статус:** реализовано и проверено локально. Публикация не выполнялась.
 
 ## 1. Executive summary

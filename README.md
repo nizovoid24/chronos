@@ -8,7 +8,6 @@ React, TypeScript, Vite, Motion, Three.js / React Three Fiber / Drei.
 Node.js 20.19+ or 22.12+ is required. Dependencies are already installed in the working project; run `npm install` only for a fresh checkout.
 
 ```bash
-cd /Users/dmitrij61/Desktop/KALLISTO/CHRONOS/web
 npm run dev
 ```
 

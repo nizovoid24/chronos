@@ -1,7 +1,7 @@
 # CHRONOS — STAGE 5C.1: Visual & UX Audit
 
 **Дата:** 12 ноября 2026 года.  
-**Проект:** `/Users/dmitrij61/Desktop/KALLISTO/CHRONOS/`  
+**Проект:** `CHRONOS/`\
 **Frontend:** `web/`  
 **Тип работы:** независимая повторная визуальная и UX-приёмка существующего Stage 5B. Исправления не выполнялись.
 
