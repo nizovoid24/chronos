@@ -59,7 +59,7 @@ export default function AionScene(props: Props) {
     <directionalLight position={[3, 5, 7]} intensity={2.2} color="#fff5df" />
     <Suspense fallback={null}>
       <StudioEnvironment />
-      <AionModel onReady={props.onReady} onRegistry={props.onRegistry} selection={props.selection} />
+      <AionModel onReady={props.onReady} onError={props.onError} onRegistry={props.onRegistry} selection={props.selection} />
     </Suspense>
     <CameraDirector {...props} />
   </Canvas>

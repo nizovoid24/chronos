@@ -17,6 +17,7 @@ export function WatchViewer({ exploreSignal }: { exploreSignal: number }) {
   const [status, setStatus] = useState<RegistryStatus | null>(null)
   const [started, setStarted] = useState(false)
   const [ready, setReady] = useState(false)
+  const [posterHidden, setPosterHidden] = useState(false)
   const [failed, setFailed] = useState(false)
   const [interactive, setInteractive] = useState(false)
   const [moving, setMoving] = useState(!reducedMotion)
@@ -29,6 +30,10 @@ export function WatchViewer({ exploreSignal }: { exploreSignal: number }) {
   useAtelierDialog(atelier.open, ref, openerRef, scrollBeforeOpen, close)
   useEffect(() => { if (active || atelier.open) setStarted(true) }, [active, atelier.open])
   useEffect(() => { if (reducedMotion) setMoving(false) }, [reducedMotion])
+  useEffect(() => {
+    if (!ready || failed) setPosterHidden(false)
+    else if (reducedMotion) setPosterHidden(true)
+  }, [ready, failed, reducedMotion])
   useEffect(() => {
     if (exploreSignal > 0) { setInteractive(true); setMoving(false); viewerRef.current?.focus({ preventScroll: true }) }
   }, [exploreSignal])
@@ -47,7 +52,7 @@ export function WatchViewer({ exploreSignal }: { exploreSignal: number }) {
       <div><span className="atelier-wordmark">CHRONOS</span><h2 id="atelier-title">AION INTERACTIVE ATELIER</h2></div>
       <button type="button" data-atelier-close onClick={close}>Return to Website <span aria-hidden="true">↗</span></button>
     </header>
-    <div ref={viewerRef} className={`watch-stage ${interactive || atelier.open ? 'is-interactive' : ''}`} id="watch-viewer"
+    <div ref={viewerRef} className={`watch-stage ${interactive || atelier.open ? 'is-interactive' : ''} ${ready && !failed ? 'is-ready' : ''}`} id="watch-viewer"
       role="region" aria-label={atelier.open ? 'Interactive AION watch' : 'Трёхмерный осмотр часов AION'} aria-describedby="viewer-help" tabIndex={0}
       onKeyDown={event => {
         if (event.target !== event.currentTarget || failed) return
@@ -56,9 +61,11 @@ export function WatchViewer({ exploreSignal }: { exploreSignal: number }) {
         if (event.key === 'Escape' && !atelier.open) { setInteractive(false); setMoving(false) }
       }}>
       <img className={`watch-poster ${ready && !failed ? 'is-hidden' : ''}`} src={`${import.meta.env.BASE_URL}images/aion-poster.jpg`}
+        hidden={posterHidden && ready && !failed} aria-hidden={ready && !failed || undefined}
+        onTransitionEnd={event => { if (event.propertyName === 'opacity' && ready && !failed) setPosterHidden(true) }}
         alt="CHRONOS AION: тёмная сталь, золотые акценты, открытый циферблат и чёрный кожаный ремешок" width="1400" height="1400" fetchPriority="high" />
       {started && !failed && <SceneBoundary onError={fail}><Suspense fallback={null}>
-        <AionScene active={active} interactive={interactive || atelier.open} moving={moving && !reducedMotion && !atelier.open} command={command}
+        <AionScene active={active} interactive={interactive || atelier.open} moving={moving && posterHidden && !reducedMotion && !atelier.open} command={command}
           atelier={atelier.open} selection={atelier.open ? atelier.selection : ORIGINAL} focus={atelier.open ? atelier.focus : 'full'} focusVersion={atelier.version} reducedMotion={reducedMotion}
           onRegistry={setStatus} onReady={loaded} onError={fail} onInteract={stopMotion} onMotionEnd={stopMotion} />
       </Suspense></SceneBoundary>}
