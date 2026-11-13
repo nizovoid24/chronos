@@ -37,7 +37,7 @@ export function Anatomy() {
   }
   const story = stories[selected]
   return <section className="anatomy editorial-section" id="anatomy" aria-labelledby="anatomy-title">
-    <Reveal className="anatomy-heading"><div><p className="section-kicker"><span>02</span> THE ANATOMY OF AION</p><h2 className="display-heading" id="anatomy-title">ANATOMY<br /><em>OF PRECISION.</em></h2></div><p className="anatomy-intro">Three perspectives.<br />One considered whole.</p></Reveal>
+    <Reveal className="anatomy-heading"><div><p className="section-kicker"><span>02</span> THE ANATOMY OF AION</p><h2 className="display-heading" id="anatomy-title">ANATOMY<br /><em>OF PRECISION</em></h2></div><p className="anatomy-intro">Three perspectives.<br />One considered whole.</p></Reveal>
     <Reveal className="anatomy-layout">
       <div className="anatomy-visual"><div className="anatomy-images" aria-busy={selected !== displayed && !error}>
         {visited.map(index => <motion.div key={index} className="anatomy-layer" initial={false} animate={{ opacity: index === displayed ? 1 : 0 }} transition={{ duration: reduced ? 0 : 0.55 }} aria-hidden={index !== displayed}>
@@ -50,7 +50,7 @@ export function Anatomy() {
           {stories.map((item, index) => <button key={item.name} ref={node => { buttons.current[index] = node }} type="button" role="tab" id={`anatomy-tab-${index}`} aria-selected={selected === index} aria-controls="anatomy-panel" tabIndex={selected === index ? 0 : -1} onClick={() => choose(index)} onKeyDown={onKeyDown}><span className="tab-number">0{index + 1}</span><span>{item.title}</span><span className="tab-arrow" aria-hidden="true">↗</span></button>)}
         </div>
         <div className="anatomy-panel" id="anatomy-panel" role="tabpanel" aria-labelledby={`anatomy-tab-${selected}`} tabIndex={0}>
-          <AnimatePresence initial={false} mode="wait"><motion.div key={selected} initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.2 }}><h3>{story.name}.</h3><p>{story.description}</p><span className="detail-label">{story.detail}</span></motion.div></AnimatePresence>
+          <AnimatePresence initial={false} mode="wait"><motion.div key={selected} initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.2 }}><h3>{story.name}</h3><p>{story.description}</p><span className="detail-label">{story.detail}</span></motion.div></AnimatePresence>
         </div>
         <p className="anatomy-disclosure">A design exploration. The visible mechanism is decorative.</p>
         <span className="sr-only" role="status">{error ? 'The selected photograph could not load.' : selected !== displayed ? 'Loading selected detail.' : `${story.title} photograph ready.`}</span>

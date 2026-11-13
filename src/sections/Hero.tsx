@@ -6,7 +6,7 @@ export function Hero({ exploreSignal, onExplore }: { exploreSignal: number; onEx
         <motion.div className="hero-heading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9 }}>
           <p className="eyebrow">CHRONOS · PREMIÈRE ÉDITION</p>
           <h1 id="aion-title">AION</h1>
-          <p className="hero-motto">TIME IS THE ULTIMATE LUXURY.</p>
+          <p className="hero-motto">TIME IS THE ULTIMATE LUXURY</p>
         </motion.div>
         <div className="hero-side hero-side-left"><span className="small-label">AN OBJECT OF TIME</span><p>Mechanical artistry.<br />Open to the eye.</p><span className="hairline" /></div>
         <WatchViewer exploreSignal={exploreSignal} />
