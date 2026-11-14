@@ -3,7 +3,7 @@ import { readFileSync, existsSync } from 'node:fs'
 import { registerHooks } from 'node:module'
 import { fileURLToPath } from 'node:url'
 import { Texture } from 'three'
-import { GLTFLoader } from 'three-stdlib'
+import { GLTFLoader, MeshoptDecoder } from 'three-stdlib'
 
 // Run the application's actual TypeScript modules without installing a test runner.
 registerHooks({ resolve(specifier, context, nextResolve) {
@@ -17,6 +17,7 @@ const { createAionModel } = await import('../src/three/materialRegistry.ts')
 const { SCOPES, ORIGINAL } = await import('../src/three/materialVariants.ts')
 const bytes = readFileSync(new URL('../public/models/aion-v02.glb', import.meta.url))
 const loader = new GLTFLoader()
+loader.setMeshoptDecoder(typeof MeshoptDecoder === 'function' ? MeshoptDecoder() : MeshoptDecoder)
 // Node has no image decoder. Only image uploads are replaced with Texture fixtures;
 // the real GLB geometry, nodes, loader material types and material links are parsed.
 loader.register(() => ({ name: 'NodeTextureFixture', loadTexture: index => {

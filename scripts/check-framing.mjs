@@ -1,11 +1,25 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { Box3, Euler, Matrix4, Quaternion, Vector3 } from 'three'
+import { MeshoptDecoder } from 'three-stdlib'
 
 // Independently project the actual shipped GLB vertices through an orbit sweep.
 const bytes = await readFile('public/models/aion-v02.glb')
 const jsonLength = bytes.readUInt32LE(12)
 const gltf = JSON.parse(bytes.subarray(20, 20 + jsonLength))
-const binary = bytes.subarray(28 + jsonLength)
+let binary = bytes.subarray(28 + jsonLength)
+const decoder = typeof MeshoptDecoder === 'function' ? MeshoptDecoder() : MeshoptDecoder
+await decoder.ready
+const decodedViews = gltf.bufferViews.map(view => {
+  const compression = view.extensions?.EXT_meshopt_compression
+  if (!compression) return binary.subarray(view.byteOffset ?? 0, (view.byteOffset ?? 0) + view.byteLength)
+  const decoded = new Uint8Array(compression.count * compression.byteStride)
+  decoder.decodeGltfBuffer(decoded, compression.count, compression.byteStride,
+    binary.subarray(compression.byteOffset ?? 0, (compression.byteOffset ?? 0) + compression.byteLength), compression.mode, compression.filter)
+  return Buffer.from(decoded)
+})
+let decodedOffset = 0
+gltf.bufferViews.forEach((view, index) => { view.byteOffset = decodedOffset; decodedOffset += decodedViews[index].length })
+binary = Buffer.concat(decodedViews)
 const points = []
 const envelope = new Box3()
 const orientation = new Matrix4().makeRotationX(Math.PI / 2)
